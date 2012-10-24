@@ -58,7 +58,7 @@ module Mailboxer
         message.conversation = convo
         message.recipients = recipients.is_a?(Array) ? recipients : [recipients]
         message.recipients = message.recipients.uniq
-        return message.deliver false,sanitize_text
+        return message
       end
 
       #Basic reply method. USE NOT RECOMENDED.
