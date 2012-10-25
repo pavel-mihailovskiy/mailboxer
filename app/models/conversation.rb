@@ -1,4 +1,5 @@
 class Conversation < ActiveRecord::Base
+  MESSAGES_FOR_DROPDOWN = 5
   attr_accessible :subject
 
 	has_many :messages, :dependent => :destroy
