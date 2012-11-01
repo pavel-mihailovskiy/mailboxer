@@ -136,6 +136,13 @@ class Conversation < ActiveRecord::Base
 		return self.receipts_for(participant).not_trash.is_unread.count!=0
 	end
 
+  def forward_message(id)
+    message = Message.find_by_id(id)
+    message = Message.new( :body => message.body,
+                            :subject => "Fwd: " << message.subject
+                          )
+  end
+
 	protected
 
 	include ActionView::Helpers::SanitizeHelper
